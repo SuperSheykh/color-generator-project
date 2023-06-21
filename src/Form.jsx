@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-const Form = ({ color, setColor }) => {
-   const [formColor, setFormColor] = useState(color)
+const Form = ({ defaultColor, getColorsFromForm }) => {
+   const [color, setColor] = useState(defaultColor)
    const handleSubmit = (e) => {
       e.preventDefault()
-      setColor(formColor)
+      getColorsFromForm(color)
    }
    return (
       <section className='container'>
@@ -12,20 +12,16 @@ const Form = ({ color, setColor }) => {
          <form className='color-form' onSubmit={handleSubmit}>
             <input
                type='color'
-               value={formColor}
-               onChange={(e) => setFormColor(e.target.value)}
+               value={color}
+               onChange={(e) => setColor(e.target.value)}
             />
             <input
                type='text'
                placeholder='#f15025'
-               value={formColor}
-               onChange={(e) => setFormColor(e.target.value)}
+               value={color}
+               onChange={(e) => setColor(e.target.value)}
             />
-            <button
-               type='submit'
-               className='btn'
-               style={{ background: formColor }}
-            >
+            <button type='submit' className='btn' style={{ background: color }}>
                Submit
             </button>
          </form>
