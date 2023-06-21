@@ -34,11 +34,12 @@ const ColorList = ({ color }) => {
 
    return (
       <section className='colors'>
-         {colors.map((color) => {
+         {colors.map((color, index) => {
             return (
                <SingleColor
                   key={nanoid()}
                   color={color}
+                  index={index}
                   copyToClipboard={copyToClipboard}
                />
             )

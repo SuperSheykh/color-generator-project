@@ -1,17 +1,17 @@
 import React from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 
-const SingleColor = ({ color, copyToClipboard }) => {
+const SingleColor = ({ color, index, copyToClipboard }) => {
    const { weight, hex } = color
 
    return (
       <article
-         className='color'
+         className={index > 10 ? 'color color-light' : 'color'}
          style={{ backgroundColor: `#${hex}` }}
          onClick={() => copyToClipboard(hex)}
       >
-         <p className=''>{weight}%</p>
-         <p className=''>#{hex}</p>
+         <p className='percent-value'>{weight}%</p>
+         <p className='color-value'>#{hex}</p>
       </article>
    )
 }
